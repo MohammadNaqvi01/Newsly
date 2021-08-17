@@ -1,0 +1,29 @@
+
+{% extends 'trail/base.html' %}
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+<p>{{greet}} this is our feed</p>
+
+<table>
+<tr>
+<th>Id</th>
+<th>Heading</th>
+</tr>
+{% for nws in news %}
+<tr>
+<td>{{nws.id}}</td>
+<td>{{nws.heading}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock content %}
+
+
+
