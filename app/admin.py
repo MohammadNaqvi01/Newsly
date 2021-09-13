@@ -1,7 +1,8 @@
-from app import models
+
 from django.contrib import admin
-from .models import Person
+from .models import *
 # Register your models here.
-@admin.register(Person)
-class PersonAdmin(admin.ModelAdmin):
-    list_display=['id','heading']
+models_list=[HT,TheHindu,TOI]
+@admin.register(*models_list)
+class NewslyAdmin(admin.ModelAdmin):
+    pass

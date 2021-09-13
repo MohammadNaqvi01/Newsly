@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #Django Channels Added
+# 'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'app',
+     'chatapp',
 #Django Mailer Added
 'mailer',
-#Django Channels Added
-'channels',
+
 ]
 
 MIDDLEWARE = [
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'trail.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,7 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'trail.wsgi.application'
 
 #ADDED
-# ASGI_APPLICATION = "trail.asgi.application"
+#ASGI_APPLICATION = "routing.application"
 
 
 # Database
@@ -90,6 +92,12 @@ DATABASES = {
 
 #BACKEND ADDED FOR DJANGO-MAILER
 #EMAIL_BACKEND = "mailer.backend.DbBackend"
+
+
+# CHANNEL LAYER
+
+
+
 
 
 

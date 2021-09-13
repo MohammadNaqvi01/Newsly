@@ -1,0 +1,45 @@
+
+{% extends 'trail/base.htm' %}
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+
+
+{% block content %}
+
+<div class="row my-4">
+
+  <div class="col text-center text-success ">
+   <strong> <h2>{{greet}} to {{name}} this is our feed</h2></strong>
+
+  </div>
+
+</div>
+
+ <div class="container">
+  <div class="row my-2">
+    <div class="col-sm-8 offset-sm-2">
+        <div class="card margin mx-2 mb-4 lg-8 rounded-3 shadow-sm">
+          <div class="card-header py-3 bg-gradient">
+            <h4 class="my-0 fw-normal ">Free</h4>
+          </div>
+          <div class="card-body">
+            <h6 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h6>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>10 users included</li>
+              <li>2 GB of storage</li>
+              <li>Email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+          </div>
+     </div>
+  </div>
+</div>
+
+
+{% endblock content %}
+
+
+

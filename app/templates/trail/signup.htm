@@ -1,0 +1,27 @@
+{% extends 'trail/base.htm' %}
+
+{% block content %}
+
+<div class="container">
+ <div class="row my-sm-2">
+  <div class="col-sm-6 offset-sm-3">
+<form method="post" class="shadow p-5">
+
+<h2 class="text-danger text-center">Newsly</h2>
+
+{% csrf_token %}
+
+
+{% for fm in form %}
+
+{{fm.label}}{{fm}}<br><small class="text-danger">{{fm.errors|striptags}}</small>
+
+{% endfor %}
+
+<input class="form-control btn-outline-danger" type="submit" value="SignUp">
+
+</form>
+</div>
+</div>
+</div>
+{% endblock content %}

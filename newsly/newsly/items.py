@@ -4,14 +4,41 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-from app.models import Person
-
-# class NewslyItem(scrapy.Item):
-#     # define the fields for your item here like:
-#     # name = scrapy.Field()
-#     pass
-
 from scrapy_djangoitem import DjangoItem
+from app.models import TheHindu,HT,TOI
 
-class PersonItem(DjangoItem):
-    django_model = Person
+class THItem(DjangoItem):
+    django_model = TheHindu
+
+class HTItem(DjangoItem):
+    django_model = HT
+
+class TOIItem(DjangoItem):
+    django_model = TOI
+
+
+
+
+
+
+# class TheHinduItem(scrapy.Item):
+#     # define the fields for your item here like:
+#      section = scrapy.Field()
+#      heading = scrapy.Field()
+#      headline = scrapy.Field()
+#      readmore = scrapy.Field()
+
+# class TOIItem(scrapy.Item):
+#     # define the fields for your item here like:
+#      section = scrapy.Field()
+#      heading = scrapy.Field()
+#      headline = scrapy.Field()
+#      readmore = scrapy.Field()
+
+
+# class HTItem(scrapy.Item):
+#     # define the fields for your item here like:
+#      section = scrapy.Field()
+#      heading = scrapy.Field()
+#      headline = scrapy.Field()
+#      readmore = scrapy.Field()

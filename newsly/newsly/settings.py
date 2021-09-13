@@ -14,23 +14,18 @@ NEWSPIDER_MODULE = 'newsly.spiders'
 
 import os
 import sys
+
+#it add newsly in sys.path for interpreter to search
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".."))
+
+ 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'trail.settings'
+
 import django
 django.setup()
-# import os
-# import sys
-# # take=sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".."))
-# # print(take,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-# sys.path.append('DjangoNewsWebsite/trail/')
 
-# from os import environ
-# environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-# from settings import *
-# # os.environ['DJANGO_SETTINGS_MODULE'] = 'trail.settings'
+# Now we can use any part of django/project/app inside our scrapy project
 
-# import django
-# django.setup()
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'newsly (+http://www.yourdomain.com)'
@@ -81,13 +76,16 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'newsly.pipelines.NewslyPipeline': 300,
-}
+# ITEM_PIPELINES = {
+  
+#    'newsly.pipelines.THPipeline': 1,
+#    'newsly.pipelines.HTPipeline': 1,
+#    'newsly.pipelines.TOIPipeline': 1,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
-#AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_ENABLED = True
 # The initial download delay
 #AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
@@ -105,3 +103,6 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+#limiting the log output
+LOG_LEVEL = 'ERROR'
