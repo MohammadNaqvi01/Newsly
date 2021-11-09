@@ -1,5 +1,27 @@
 {% extends 'trail/base.htm' %}
 
+{% load static %}
+
+
+{% block content %}
+
+
+
+
+
+
+
+<div class="container userform">
+ <div class="row my-sm-5">
+<div class="col-sm-6 offset-sm-3">
+<h2 class="text-danger text-center">Newsly</h2>
+<form method="post" class="shadow p-5">
+
+
+{% for fm in form %}
+{% csrf_token %}
+
+
 {% block content %}
 
 <div class="container">
@@ -14,9 +36,42 @@
 
 {% for fm in form %}
 
+
 {{fm.label}}{{fm}}<br><small class="text-danger">{{fm.errors|striptags}}</small>
 
 {% endfor %}
+
+
+
+ <button id="next" type="submit" class="btn btn-outline-danger ">SignUp</button>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+
+{% endblock content %}
+
+{% block script %}
+
+<script src="{% static 'js/myscript.js' %}"></script>
+
+{% endblock script %}
 
 <input class="form-control btn-outline-danger" type="submit" value="SignUp">
 
@@ -24,4 +79,8 @@
 </div>
 </div>
 </div>
+
 {% endblock content %}
+
+{% endblock content %}
+

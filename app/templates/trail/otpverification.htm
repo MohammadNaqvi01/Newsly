@@ -1,0 +1,46 @@
+{% extends 'trail/base.htm' %}
+{% load static %}
+{% load cache %}
+{% block css %}
+
+ <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    
+{% endblock css %}
+
+{% block content %}
+
+<div class="container userform">
+ <div class="row my-sm-5">
+<div class="col-sm-6 offset-sm-3">
+<form method="post" class="shadow p-5">
+
+{% csrf_token %}
+
+
+{% if messages %}
+{% for msg in messeges %}
+<small class="btn-danger">{{msg}}<small>
+{% endfor %}
+{% endif %}
+
+<div class="d-flex justify-content-center align-items-center container ">
+    <div class="card py-5 px-3 shadow ">
+        <h5 class="m-0">Mobile phone verification</h5><span class="mobile-text">Enter the code we just send on your mobile phone <b id="phone"class="text-danger">+91 {{number}}</b></span>
+        <div class="d-flex flex-row mt-5">{% for form in otpform %}{{form.label}}{{form}}<small class="text-danger">{{form.errors|striptags}}</small>{% endfor %}<br></div>
+   <!--Template Caching-->     <div class="text-center mt-3"><span class="d-block mobile-text">Don't receive the code?</span>{% cache 60 otpcache %}<span class="font-weight-bold text-danger cursor" id="send">Resend</span></div>{% endcache otp_cache%}
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </div>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+{% endblock content %}
+
+
+{% block script %}
+<script src="{% static 'js/myscript.js' %}"></script>
+{% endblock script %}
+
+

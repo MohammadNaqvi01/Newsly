@@ -7,6 +7,13 @@ urlpatterns = [
 
    
     path('signup/',views.SignUp.as_view(),name="signup"),
-    path('login/',views.Otp.as_view(),name="login"),
+
+    path('verification/',views.Otp.as_view(),name="login"),
+    path('check/',views.check),
     
+
+    path('login/',views.Otp.as_view(),name="login"),
+
+    path('login/',views.Otp.as_view(),name="login"),
+
 ]

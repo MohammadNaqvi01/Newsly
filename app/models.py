@@ -1,6 +1,9 @@
 from django.db import models
 
-# Create your models here.
+from django.contrib.auth.models import User
+from django.db.models.fields import CharField
+from django.db.models.fields.related import OneToOneField
+
 
 class Newsly(models.Model):
       section=models.CharField(max_length=255)
@@ -48,4 +51,18 @@ class HT(Newsly):
        constraints=[
            models.UniqueConstraint(fields=['section','heading','headline','readmore'],name="HT")
        ]
+
+#Extending user model using One to One field
+class OtpModel(models.Model):
+   user=OneToOneField(User,on_delete=models.CASCADE)
+   otp=CharField(max_length=4)
+   phone=CharField(max_length=13)
+   password=CharField(max_length=20,default='')
+    #  class Meta():
+    #    constraints=[
+    #        models.UniqueConstraint(fields=['text'],name="text")
+    #    ]
+
+   def __str__(self):
+        return str(self.id)
 

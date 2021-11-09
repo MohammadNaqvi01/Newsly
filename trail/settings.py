@@ -20,7 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z4heusd7koxre48fayrwtsi#i_6!=o+j7mgmjd4f-#^84ch+7d'
+
+SECRET_KEY = ''
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,11 +45,11 @@ INSTALLED_APPS = [
      'app',
      'chatapp',
 #Django Mailer Added
-'mailer',
 
 ]
 
-MIDDLEWARE = [
+
+MIDDLEWARE = [ 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'trail.urls'
@@ -92,6 +96,40 @@ DATABASES = {
 
 #BACKEND ADDED FOR DJANGO-MAILER
 #EMAIL_BACKEND = "mailer.backend.DbBackend"
+
+
+
+
+#Redis For Caching 
+
+
+#Cache time to live is 1 minute.
+CACHE_TTL = 60 * 1
+
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://127.0.0.1:6379/1",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient"
+#         },
+#         "KEY_PREFIX": "example"
+#     }
+# }
+
+#locmem-cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'upsky',
+    }
+}
+
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+
 
 
 # CHANNEL LAYER
